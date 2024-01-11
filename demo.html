@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload with Validation</title>
+</head>
+<body>
+
+<form id="fileForm">
+    <label for="fileInput">Choose a file:</label>
+    <input type="file" id="fileInput" name="fileInput" accept=".jpg, .jpeg, .png" onchange="validateFile()">
+    <p id="error-message" style="color: red;"></p>
+    <input type="submit" value="Upload">
+</form>
+
+<script>
+    function validateFile() {
+        var fileInput = document.getElementById('fileInput');
+        var errorMessage = document.getElementById('error-message');
+        
+        // Reset error message
+        errorMessage.textContent = '';
+
+        // Check if a file is selected
+        if (fileInput.files.length === 0) {
+            errorMessage.textContent = 'Please choose a file.';
+            return;
+        }
+
+        // Get the selected file
+        var file = fileInput.files[0];
+
+        // Check file size (in bytes)
+        if (file.size > 2 * 1024 * 1024) { // 2 MB
+            errorMessage.textContent = 'File size must be below 2 MB.';
+            fileInput.value = ''; // Clear the file input
+            return;
+        }
+
+        // Check file extension
+        var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+        if (!allowedExtensions.exec(file.name)) {
+            errorMessage.textContent = 'Invalid file type. Only JPG, JPEG, and PNG files are allowed.';
+            fileInput.value = ''; // Clear the file input
+            return;
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+.form-container{
+    display: flex;
+    justify-content: center;
+    background-image: url("../51158PICQteg8Td1u6ank_PIC2018.jpg");
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.form-container>div{
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: rgb(0, 0, 0);
+    box-shadow: 5px 10px 10px black;
+}
+.form-container>div div{
+    margin-bottom: 5px;
+}
+
+header{
+    background-color: rgb(6, 6, 81);
+    color: white;
+    padding: 20px;
+}
